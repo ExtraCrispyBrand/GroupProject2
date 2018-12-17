@@ -22,7 +22,7 @@
     "camelcase": "error",
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double"],
+    "quotes": ["error", "backtick"],
     "semi": ["error", "always"],
     "prettier/prettier": "error"
   }
