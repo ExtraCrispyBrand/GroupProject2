@@ -47,7 +47,8 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
-        window.location.replace(data);
+        console.log("Data is here!", data);
+        window.location.replace("/userhome");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

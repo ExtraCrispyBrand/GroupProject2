@@ -18,7 +18,8 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  // eslint-disable-next-line
+  app.use(function(req, res, next) {
     res.render("404");
   });
 };
