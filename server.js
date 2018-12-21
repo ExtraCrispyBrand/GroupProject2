@@ -1,13 +1,13 @@
 require("dotenv").config();
-const express = require("express");
-const session = require("express-session");
-const passport = require("./config/passport/passport");
-const exphbs = require("express-handlebars");
+var express = require("express");
+var session = require("express-session");
+var passport = require("./config/passport/passport");
+var exphbs = require("express-handlebars");
 
-const db = require("./models");
+var db = require("./models");
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+var app = express();
+var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -35,7 +35,7 @@ require("./routes/authentication/authenticationHtmlRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-const syncOptions = { force: false };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
