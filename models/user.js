@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    last_login: {
+    lastLogin: {
       type: DataTypes.DATE
     },
 
