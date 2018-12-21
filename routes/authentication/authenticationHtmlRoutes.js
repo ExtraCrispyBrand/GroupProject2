@@ -2,18 +2,12 @@
 var isAuthenticated = require("../../config/passport/isAuthenticated");
 
 module.exports = function(app) {
-  app.get("/signin", function(req, res) {
+  app.get("/signin", isAuthenticated, function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.render("userhome");
-    }
     res.render("signin");
   });
 
-  app.get("/signup", function(req, res) {
-    if (req.user) {
-      res.render("userhome");
-    }
+  app.get("/signup", isAuthenticated, function(req, res) {
     res.render("signup");
   });
   // Here we've add our isAuthenticated middleware to this route.
