@@ -1,4 +1,4 @@
-require(`dotenv`).config();
+`dotenv`.config();
 
 module.exports = {
   development: {
@@ -14,6 +14,7 @@ module.exports = {
     database: `KingoftheTest`,
     host: `localhost`,
     dialect: `mysql`,
+
     logging: false
   },
   production: {
