@@ -18,10 +18,12 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
     const { body } = req;
-    console.log(body);
+    console.log(body.accountType);
     db.User.create({
+      accountType: body.accountType,
       firstName: body.firstName,
       lastName: body.lastName,
+      companyName: body.companyName,
       email: body.email,
       password: body.password
     })

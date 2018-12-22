@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
+    accountType: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,6 +26,11 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isAlpha: true
       }
+    },
+
+    companyName: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
 
     email: {

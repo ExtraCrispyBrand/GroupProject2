@@ -1,8 +1,10 @@
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form#signUp");
+  var accountTypeInput = $("select#accountType");
   var firstNameInput = $("input#firstName");
   var lastNameInput = $("input#lastName");
+  var companyNameInput = $("input#companyName");
   var emailInput = $("input#email");
   var passwordInput = $("input#password");
 
@@ -10,13 +12,18 @@ $(document).ready(function() {
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
+      accountType: accountTypeInput.val(),
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
+      companyName: companyNameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
 
+    console.log("Account Type: " + userData.accountType);
+
     if (
+      !userData.accountType ||
       !userData.firstName ||
       !userData.lastName ||
       !userData.email ||
@@ -24,25 +31,42 @@ $(document).ready(function() {
     ) {
       return;
     }
+
+    if (userData.accountType === "sponsor" && !userData.companyName) {
+      return;
+    }
     // If we have an email and password, run the signUpUser function
     signUpUser(
+      userData.accountType,
       userData.firstName,
       userData.lastName,
+      userData.companyName,
       userData.email,
       userData.password
     );
+    accountTypeInput.val("");
     firstNameInput.val("");
     lastNameInput.val("");
+    companyNameInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(firstName, lastName, email, password) {
+  function signUpUser(
+    accountType,
+    firstName,
+    lastName,
+    companyName,
+    email,
+    password
+  ) {
     $.post("/api/signup", {
+      accountType: accountType,
       firstName: firstName,
       lastName: lastName,
+      companyName: companyName,
       email: email,
       password: password
     })

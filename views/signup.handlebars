@@ -1,14 +1,25 @@
+<br />
+<br />
 <div class="container">
     <div class="row">
         <form id="signUp" name="signUp">
             <div class="form-group">
+                <label for="accountType">Account Type:</label>
+                <select class="form-control" id="accountType">
+                    <option value="player">Player</option>
+                    <option value="sponsor">Sponsor</option>
+                </select>
                 <label for="firstName">First Name:</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Sam" required />
                 <label for="lastName">Last Name:</label>
                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Smith" required />
+                <label for="companyName">Company
+                    Name (Only required if signing up for sponsor account):</label>
+                <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company, INC." />
                 <label for="email">Email Address (this will also be your username):</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" required />
-                <label for="password">Password (Requirements: 8-12 characters, 1 capital letter, 1 lowercase letter,
+                <label for="password">Password (Requirements: 8-12 characters, 1 capital letter, 1 lowercase
+                    letter,
                     and 1 number):</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="password"
                     required />
