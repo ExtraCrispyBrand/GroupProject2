@@ -1,17 +1,17 @@
-$(document).ready(function() {
+$(document).ready(() => {
   // Getting references to our form and input
-  var signUpForm = $("form#signUp");
-  var accountTypeInput = $("select#accountType");
-  var firstNameInput = $("input#firstName");
-  var lastNameInput = $("input#lastName");
-  var companyNameInput = $("input#companyName");
-  var emailInput = $("input#email");
-  var passwordInput = $("input#password");
+  const signUpForm = $(`form#signUp`);
+  const accountTypeInput = $(`select#accountType`);
+  const firstNameInput = $(`input#firstName`);
+  const lastNameInput = $(`input#lastName`);
+  const companyNameInput = $(`input#companyName`);
+  const emailInput = $(`input#email`);
+  const passwordInput = $(`input#password`);
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on(`submit`, event => {
     event.preventDefault();
-    var userData = {
+    const userData = {
       accountType: accountTypeInput.val(),
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
@@ -20,7 +20,7 @@ $(document).ready(function() {
       password: passwordInput.val().trim()
     };
 
-    console.log("Account Type: " + userData.accountType);
+    console.log(`Account Type: ` + userData.accountType);
 
     if (
       !userData.accountType ||
@@ -32,7 +32,7 @@ $(document).ready(function() {
       return;
     }
 
-    if (userData.accountType === "sponsor" && !userData.companyName) {
+    if (userData.accountType === `sponsor` && !userData.companyName) {
       return;
     }
     // If we have an email and password, run the signUpUser function
@@ -44,25 +44,25 @@ $(document).ready(function() {
       userData.email,
       userData.password
     );
-    accountTypeInput.val("");
-    firstNameInput.val("");
-    lastNameInput.val("");
-    companyNameInput.val("");
-    emailInput.val("");
-    passwordInput.val("");
+    accountTypeInput.val(``);
+    firstNameInput.val(``);
+    lastNameInput.val(``);
+    companyNameInput.val(``);
+    emailInput.val(``);
+    passwordInput.val(``);
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(
+  const signUpUser = (
     accountType,
     firstName,
     lastName,
     companyName,
     email,
     password
-  ) {
-    $.post("/api/signup", {
+  ) => {
+    $.post(`/api/signup`, {
       accountType: accountType,
       firstName: firstName,
       lastName: lastName,
@@ -70,16 +70,23 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function(data) {
-        console.log("Data is here!", data);
-        window.location.replace("/userhome");
+      .then(data => {
+        console.log(`Data is here!`, data);
+
+        if (accountType === `personal`) {
+          window.location.replace(`/userhome`);
+        }
+
+        if (accountType === `sponsor`) {
+          window.location.replace(`/sponsorhome`);
+        }
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
-  }
+  };
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
+  const handleLoginErr = err => {
+    $(`#alert .msg`).text(err.responseJSON);
+    $(`#alert`).fadeIn(500);
+  };
 });
