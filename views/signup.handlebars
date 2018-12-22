@@ -2,32 +2,35 @@
 <br />
 <div class="container">
     <div class="row">
-        <form id="signUp" name="signUp">
-            <div class="form-group">
-                <label for="accountType">Account Type:</label>
-                <select class="form-control" id="accountType">
-                    <option value="player">Player</option>
-                    <option value="sponsor">Sponsor</option>
-                </select>
-                <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Sam" required />
-                <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Smith" required />
-                <label for="companyName">Company
-                    Name (Only required if signing up for sponsor account):</label>
-                <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company, INC." />
-                <label for="email">Email Address (this will also be your username):</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" required />
-                <label for="password">Password (Requirements: 8-12 characters, 1 capital letter, 1 lowercase
-                    letter,
-                    and 1 number):</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="password"
-                    required />
-                <button type="submit" class="btn btn-primary submit">Register</button>
-            </div>
-        </form>
-        <br />
-        <p>Already have an account? <a href="/signin">Sign in here.</a></p>
 
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-primary text-center card-form pt-100">
+                <div class="card-body">
+                    <h3><strong>Sign Up Today</strong></h3>
+                    <p>Please fill out this form to register</p>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control form-control-lg" placeholder="Email Address*" required>
+                        </div>
+                        <p class="text-left">* This will be your username</p>
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-lg" placeholder="Password*" required>
+                        </div>
+                        <p class="text-left">* Requirements: 8-12 characters, 1 uppercase, 1 lowercase, 1 number</p>
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-lg" placeholder="Confirm Password" required>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-outline-light btn-block">
+                    </form>
+                </div>
+            </div>
+            <p class="text-center"><strong>Already have an account? <a href="/signin">Sign in here.</strong></a></p>
+        </div>
     </div>
 </div>

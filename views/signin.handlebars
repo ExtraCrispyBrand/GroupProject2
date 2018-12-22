@@ -1,13 +1,21 @@
 <div class="container">
     <div class="row">
-        <form id="signIn" name="signIn">
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" required />
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="password"
-                    required />
-                <button type="submit" class="btn btn-primary submit">Sign In</button>
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-primary text-center card-form pt-100">
+                <div class="card-body">
+                    <h3><strong>Sign In</strong></h3>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="email" class="form-control form-control-lg" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-lg" placeholder="Password" required>
+                        </div>
+                        <input type="submit" value="Sign In" class="btn btn-outline-light btn-block">
+                    </form>
+                </div>
             </div>
-        </form>
+            <p class="text-center"><strong>Don't have an account?  <a href="/signup">Sign up here.</strong></a></p>
+        </div>
     </div>
+</div>
