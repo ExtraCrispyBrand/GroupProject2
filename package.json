@@ -11,10 +11,15 @@
   },
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
     "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
@@ -28,6 +33,7 @@
     "lodash": "^4.17.11",
     "mocha": "^5.2.0",
     "nightmare": "^3.0.1",
+    "nodemon": "^1.18.9",
     "prettier": "^1.13.7",
     "travis": "^0.1.1",
     "travis-ci": "^2.2.0",
