@@ -1,8 +1,3 @@
-const Sentry = require("@sentry/node");
-Sentry.init({
-  dsn: process.env.dsn
-});
-require("newrelic");
 require(`dotenv`).config();
 const express = require(`express`);
 const session = require(`express-session`);
