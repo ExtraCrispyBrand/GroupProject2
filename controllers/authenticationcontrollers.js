@@ -3,24 +3,24 @@ const express = require('express');
 const authenticationRouter = express.Router();
 
 authenticationRouter.signup = (req, res) => {
-    res.render('signup');
-}
+  res.render('signup');
+};
 
 authenticationRouter.signin = (req, res) => {
-    res.render('signin');
-}
+  res.render('signin');
+};
 
 authenticationRouter.playerhome = (req, res) => {
-    res.render('playerhome');
-}
+  res.render('playerhome');
+};
 
 authenticationRouter.sponsorhome = (req, res) => {
-    res.render('sponsorhome');
-}
+  res.render('sponsorhome');
+};
 
 
 authenticationRouter.logout = (req, res) => {
-    req.logout();
-    res.redirect('/');
-}
+  req.logout();
+  res.redirect('/');
+};
 module.exports = authenticationRouter;
