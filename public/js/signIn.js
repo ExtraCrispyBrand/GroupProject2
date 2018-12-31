@@ -28,11 +28,13 @@ $(document).ready(() => {
       email: email,
       password: password
     })
-      .then(function(data) {
-        window.location.replace(data);
+      .then(data => {
+        //if login is successful will send on home route which will proceed further based off of account type
+        window.location.replace('/home');
+
         // If there's an error, log the error
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
   };

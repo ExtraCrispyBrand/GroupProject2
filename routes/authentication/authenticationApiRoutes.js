@@ -7,18 +7,16 @@ module.exports = app => {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post(`/api/signin`, passport.authenticate(`local`), (req, res) => {
-    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-    // So we're sending the user back the route to the members page because the redirect will happen on the front end
-    // They won't get this or even be able to access this page if they aren't authed
-    res.json(`/userhome`);
+    res.json({ user: req.user });
   });
+
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post(`/api/signup`, (req, res) => {
     const { body } = req;
-    console.log(body.accountType);
+
     db.User.create({
       accountType: body.accountType,
       firstName: body.firstName,
@@ -36,17 +34,11 @@ module.exports = app => {
           res.status(201).json({ message: `OK`, data: user });
         });
       })
-      .catch(function(err) {
-        console.log(err);
+      .catch(function (err) {
+
         res.status(500).json(err);
         // res.status(422).json(err.errors[0].message);
       });
-  });
-
-  // Route for logging user out
-  app.get(`/logout`, (req, res) => {
-    req.logout();
-    res.redirect(`/`);
   });
 
   // Route for getting some data about our user to be used client side
@@ -60,7 +52,8 @@ module.exports = app => {
       res.json({
         firstName: req.user.firstName,
         lastName: req.user.lastName,
-        email: req.user.email
+        email: req.user.email,
+        accountType: req.user.accountType
       });
     }
   });

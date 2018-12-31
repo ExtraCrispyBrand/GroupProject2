@@ -1,3 +1,4 @@
+//converted config.json to config.js so we can protect data with env variables
 require(`dotenv`).config();
 
 module.exports = {

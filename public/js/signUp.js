@@ -7,6 +7,7 @@ $(document).ready(() => {
   const companyNameInput = $(`input#companyName`);
   const emailInput = $(`input#email`);
   const passwordInput = $(`input#password`);
+  const passwordConfirmInput = $(`input#passwordConfirm`);
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on(`submit`, event => {
@@ -17,10 +18,9 @@ $(document).ready(() => {
       lastName: lastNameInput.val().trim(),
       companyName: companyNameInput.val().trim(),
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
+      passwordConfirm: passwordConfirmInput.val().trim()
     };
-
-    console.log(`Account Type: ` + userData.accountType);
 
     if (
       !userData.accountType ||
@@ -29,6 +29,10 @@ $(document).ready(() => {
       !userData.email ||
       !userData.password
     ) {
+      return;
+    }
+
+    if (password === passwordConfirm) {
       return;
     }
 
@@ -71,10 +75,9 @@ $(document).ready(() => {
       password: password
     })
       .then(data => {
-        console.log(`Data is here!`, data);
 
-        if (accountType === `personal`) {
-          window.location.replace(`/userhome`);
+        if (accountType === `player`) {
+          window.location.replace(`/playerhome`);
         }
 
         if (accountType === `sponsor`) {
