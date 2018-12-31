@@ -8,23 +8,39 @@
                 <div class="card-body">
                     <h3><strong>Sign Up Today</strong></h3>
                     <p>Please fill out this form to register</p>
-                    <form action="">
+                    <form id="signUp">
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="First Name" required>
+                            <p class="text-left">Please select account type:</p>
+                            <select class="form-control" id="accountType">
+                                <option value="player">Player</option>
+                                <option value="sponsor">Sponsor</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Last Name" required>
+                            <input type="text" class="form-control form-control-lg" id="firstName" placeholder="First Name"
+                                required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-lg" placeholder="Email Address*" required>
+                            <input type="text" class="form-control form-control-lg" id="lastName" placeholder="Last Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" id="companyName" placeholder="Company Name">
+                            <p class="text-left">* Required if account type sponsor selected</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control form-control-lg" id="email" placeholder="Email Address*"
+                                required>
                         </div>
                         <p class="text-left">* This will be your username</p>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-lg" placeholder="Password*" required>
+                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Password*"
+                                required>
                         </div>
                         <p class="text-left">* Requirements: 8-12 characters, 1 uppercase, 1 lowercase, 1 number</p>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-lg" placeholder="Confirm Password" required>
+                            <input type="password" class="form-control form-control-lg" id="passwordConfirm"
+                                placeholder="Confirm Password" required>
                         </div>
                         <input type="submit" value="Submit" class="btn btn-outline-light btn-block">
                     </form>
