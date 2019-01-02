@@ -12,3 +12,5 @@ router.about = (req, res) => {
 router.contact = (req, res) => {
   res.render('contact');
 };
+
+module.exports = router;

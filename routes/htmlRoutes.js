@@ -1,14 +1,14 @@
-const Router = require('../controllers/controllers');
+const router = require('../controllers/controllers');
 
 module.exports = app => {
   // Load index page
-  app.get(`/`, Router.index);
+  app.get('/', router.index);
 
-  app.get('/index', Router.index);
-  
-  app.get('/about', Router.about);
+  app.get('/index', router.index);
 
-  app.get('/contact', Router.contact);
+  app.get('/about', router.about);
+
+  app.get('/contact', router.contact);
 
   // Render 404 page for any unmatched routes
   // eslint-disable-next-line

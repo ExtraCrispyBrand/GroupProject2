@@ -1,6 +1,7 @@
 require(`dotenv`).config();
 const express = require(`express`);
 const session = require(`express-session`);
+const Sequelize = require('sequelize');
 const passport = require(`./config/passport/passport`);
 const exphbs = require(`express-handlebars`);
 const cookieParser = require('cookie-parser');
@@ -26,12 +27,13 @@ app.use(express.static(`public`));
 app.use(cookieParser());
 
 app.use(
-  session({ secret: `keyboard cat`,
-  store: new SequelizeStore({
-    db: sequelize
-  }), 
-  resave: false
-}));
+  session({
+    secret: `keyboard cat`,
+    store: new SequelizeStore({
+      db: sequelize
+    }),
+    resave: false
+  }));
 app.use(passport.initialize());
 app.use(passport.session());
 
