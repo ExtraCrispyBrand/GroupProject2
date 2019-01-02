@@ -1,7 +1,7 @@
 {
-  "name": "handlebars-boilerplate",
+  "name": "KingOfThe",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "Group Project 2, an app to assist in setting up intramural sports leagues without having to pay a ton of money for it.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -37,17 +37,20 @@
     "travis-ci": "^2.2.0",
     "underscore.string": "^3.3.5"
   },
+  "engines": {
+    "node": "10.15.0"
+  },
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ExtraCrispyBrand/GroupProject2.git"
+    "url": "git+https://github.com/ExtraCrispyBrand/KingOfThe.git"
   },
   "keywords": [],
   "author": "",
   "bugs": {
-    "url": "https://github.com/ExtraCrispyBrand/GroupProject2/issues"
+    "url": "https://github.com/ExtraCrispyBrand/KingOfThe/issues"
   },
-  "homepage": "https://github.com/ExtraCrispyBrand/GroupProject2#readme"
+  "homepage": "https://github.com/ExtraCrispyBrand/KingOfThe#readme"
 }
