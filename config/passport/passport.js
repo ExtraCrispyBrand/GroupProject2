@@ -1,5 +1,6 @@
 const passport = require(`passport`);
 const LocalStrategy = require(`passport-local`).Strategy;
+const Op = Sequelize.Op;
 
 const db = require(`../../models`);
 
@@ -14,7 +15,7 @@ passport.use(
       // When a user tries to sign in this code runs
       db.User.findOne({
         where: {
-          email: email
+          [Op.col]: email
         }
       }).then(dbUser => {
         console.log(dbUser);

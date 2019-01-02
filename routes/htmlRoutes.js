@@ -1,19 +1,15 @@
 const db = require(`../models`);
+const Router = require('../controllers/controllers');
 
 module.exports = app => {
   // Load index page
-  app.get(`/`, (req, res) => {
-    res.render(`index`);
-  });
+  app.get(`/`, Router.index);
 
-  // Load example page and pass in an example by id
-  app.get(`/example/:id`, (req, res) => {
-    db.Example.findOne({ where: { id: req.params.id } }).then(dbExample => {
-      res.render(`example`, {
-        example: dbExample
-      });
-    });
-  });
+  app.get('/index', Router.index);
+  
+  app.get('/about', Router.about);
+
+  app.get('/contact', Router.contact);
 
   // Render 404 page for any unmatched routes
   // eslint-disable-next-line
