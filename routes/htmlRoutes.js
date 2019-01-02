@@ -1,4 +1,3 @@
-const db = require(`../models`);
 const Router = require('../controllers/controllers');
 
 module.exports = app => {
