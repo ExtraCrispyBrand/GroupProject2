@@ -1,13 +1,17 @@
-var bcrypt = require("bcrypt-nodejs");
+const bcrypt = require(`bcrypt-nodejs`);
 
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define(`User`, {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
 
+    accountType: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,6 +26,11 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isAlpha: true
       }
+    },
+
+    companyName: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
 
     email: {
@@ -47,7 +56,7 @@ module.exports = function(sequelize, DataTypes) {
   };
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
-  User.addHook("beforeCreate", function(user) {
+  User.addHook(`beforeCreate`, user => {
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),

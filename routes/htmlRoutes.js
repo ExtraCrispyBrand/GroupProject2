@@ -1,25 +1,27 @@
-var db = require("../models");
+const router = require('../controllers/controllers');
 
-module.exports = function(app) {
+module.exports = app => {
   // Load index page
-  app.get("/", function(req, res) {
-    res.render("index");
-  });
+  app.get('/', router.index);
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+  app.get('/index', router.index);
+
+  app.get('/about', router.about);
+
+  app.get('/contact', router.contact);
+
 
   // Render 404 page for any unmatched routes
   // eslint-disable-next-line
-  app.use(function(req, res, next) {
-    res.render("404");
+  app.use((req, res, next) => {
+    console.error(err);
+    res.render(`404`, { error: `${req.path} not found` });
+  });
+
+  // Catches errors at runtime and passes them to 404 page to render
+  // eslint-disable-next-line
+  app.use((err, req, res, next) => {
+    console.error(err);
+    res.render(`404`, { error: err });
   });
 };

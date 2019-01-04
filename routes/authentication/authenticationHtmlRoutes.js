@@ -1,18 +1,23 @@
+const authenticationRouter = require('../../controllers/authenticationcontrollers');
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../../config/passport/isAuthenticated");
+const isAuthenticated = require(`../../config/passport/isAuthenticated`);
+const isPlayer = require('../../config/passport/isPlayer');
+const isSponsor = require('../../config/passport/isSponsor');
 
-module.exports = function(app) {
-  app.get("/signin", isAuthenticated, function(req, res) {
-    // If the user already has an account send them to the members page
-    res.render("signin");
-  });
+module.exports = app => {
 
-  app.get("/signup", isAuthenticated, function(req, res) {
-    res.render("signup");
-  });
+  app.get(`/signin`, authenticationRouter.signin);
+
+  app.get(`/signup`, authenticationRouter.signup);
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/userhome", isAuthenticated, function(req, res) {
-    res.render("userhome");
-  });
+  app.get(`/playerhome`, isAuthenticated, isPlayer, authenticationRouter.playerhome);
+
+  app.get(`/sponsorhome`, isAuthenticated, isSponsor, authenticationRouter.sponsorhome);
+
+  app.get(`/home`, isAuthenticated, isPlayer, authenticationRouter.playerhome);
+
+  app.get('/home', isAuthenticated, isSponsor, authenticationRouter.sponsorhome);
+
+  app.get('/logout', authenticationRouter.logout);
 };
