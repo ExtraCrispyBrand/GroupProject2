@@ -10,9 +10,18 @@ module.exports = app => {
 
   app.get('/contact', router.contact);
 
+
   // Render 404 page for any unmatched routes
   // eslint-disable-next-line
   app.use((req, res, next) => {
-    res.render(`404`);
+    console.error(err);
+    res.render(`404`, { error: `${req.path} not found` });
+  });
+
+  // Catches errors at runtime and passes them to 404 page to render
+  // eslint-disable-next-line
+  app.use((err, req, res, next) => {
+    console.error(err);
+    res.render(`404`, { error: err });
   });
 };
