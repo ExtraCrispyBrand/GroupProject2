@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    tournament_id: {
+    tournamentId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
