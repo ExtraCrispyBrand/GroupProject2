@@ -10,6 +10,9 @@ module.exports = app => {
 
   app.get('/contact', router.contact);
 
+  app.get('/tourni', router.tourni);
+ 
+
 
   // Render 404 page for any unmatched routes
   // eslint-disable-next-line
