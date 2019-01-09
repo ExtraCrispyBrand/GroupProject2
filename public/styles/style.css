@@ -56,6 +56,8 @@ body {
     margin-top: 70px;
 }
 
+
+===
 .d-flex .fas {
     color: #343a40;
     background: #fff;
@@ -82,4 +84,5 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+
 }
