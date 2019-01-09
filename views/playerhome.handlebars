@@ -1,2 +1,204 @@
-<h2>Player Home Page</h2>
-<h5>You are signed in!</h5><a href="/logout" class=class="btn btn-danger btn-sm">Sign Out</a>
+<!-- HEADER -->
+
+<header id="main-header" class="py-2 bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1><i class="fas fa-cog"></i> Dashboard</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ACTIONS SECTION -->
+
+<section id="actions" class="py-4 mb-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addLeagueModal">
+          <i class="fas fa-plus"></i> Add New League
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAGUES -->
+
+<section id="posts">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card text-center bg-primary text-white mb-3">
+          <div class="card-body">
+            <h3>My Leagues</h3>
+            <h4 class="display-4">
+              <i class="fas fa-user"></i> 1
+            </h4>
+            <a href="leagues.html" class="btn btn-outline-light btn-sm">View</a>
+          </div>
+        </div>
+
+        <div class="card text-center bg-success text-white mb-3">
+          <div class="card-body">
+            <h3>Search Leagues</h3>
+            <h4 class="display-4">
+              <i class="fas fa-search"></i> 4
+            </h4>
+            <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+          </div>
+        </div>
+
+        <div class="card text-center bg-warning text-white mb-3">
+          <div class="card-body">
+            <h3>Something Else?</h3>
+            <h4 class="display-4">
+              <i class="fas fa-question-circle"></i> ...
+            </h4>
+            <a href="####.html" class="btn btn-outline-light btn-sm">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header">
+            <h4>Leagues</h4>
+          </div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>League</th>
+                <th>Sport</th>
+                <th>Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>League One</td>
+                <td>Volleyball</td>
+                <td>May 10 2018</td>
+                <td>
+                  <a href="details.html" class="btn btn-secondary">
+                    <i class="fas fa-angle-double-right"></i> Details
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>League Two</td>
+                <td>Bowling</td>
+                <td>May 11 2018</td>
+                <td>
+                  <a href="details.html" class="btn btn-secondary">
+                    <i class="fas fa-angle-double-right"></i> Details
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>League Three</td>
+                <td>Softball</td>
+                <td>May 13 2018</td>
+                <td>
+                  <a href="details.html" class="btn btn-secondary">
+                    <i class="fas fa-angle-double-right"></i> Details
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>League Four</td>
+                <td>Volleyball</td>
+                <td>May 15 2018</td>
+                <td>
+                  <a href="details.html" class="btn btn-secondary">
+                    <i class="fas fa-angle-double-right"></i> Details
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>League Five</td>
+                <td>Basketball</td>
+                <td>May 15 2018</td>
+                <td>
+                  <a href="details.html" class="btn btn-secondary">
+                    <i class="fas fa-angle-double-right"></i> Details
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="main-footer" class="text-center p-4">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p>Copyright &copy;
+          <span id="year"></span> King of the Court</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+
+<!-- ADD LEAGUE MODAL -->
+<div class="modal fade" id="addLeagueModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Add League</h5>
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="category">Sport</label>
+            <select name="" id="" class="form-control">
+              <option value="">Basketball</option>
+              <option value="">Bowling</option>
+              <option value="">Softball</option>
+              <option value="">Volleyball</option>
+              <option value="">- Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="image">Upload Image</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="image">
+              <label for="image" class="custom-file-label">Choose File</label>
+            </div>
+            <small class="form-text text-muted">Max Size: 3MB</small>
+          </div>
+          <div class="form-group">
+            <label for="body">Body</label>
+            <textarea name="editor1" class="form-control"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Submit League</button>
+      </div>
+    </div>
+  </div>
+</div>

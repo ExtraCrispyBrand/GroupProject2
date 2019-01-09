@@ -11,11 +11,13 @@ authenticationRouter.signin = (req, res) => {
 };
 
 authenticationRouter.playerhome = (req, res) => {
-  res.render('playerhome');
+  res.render('playerhome', { user: req.user, isSponsor: req.user.accountType === 'sponsor', isPlayer: req.user.accountType === 'player' });
+  console.log(req.user);
 };
 
 authenticationRouter.sponsorhome = (req, res) => {
-  res.render('sponsorhome');
+  res.render('sponsorhome', { user: req.user, isSponsor: req.user.accountType === 'sponsor', isPlayer: req.user.accountType === 'player' });
+  console.log(req.user);
 };
 
 
