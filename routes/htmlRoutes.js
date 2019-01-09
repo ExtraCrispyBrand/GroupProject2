@@ -17,7 +17,6 @@ module.exports = app => {
   // Render 404 page for any unmatched routes
   // eslint-disable-next-line
   app.use((req, res, next) => {
-    console.error(err);
     res.render(`404`, { error: `${req.path} not found` });
   });
 
