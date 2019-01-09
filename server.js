@@ -1,5 +1,7 @@
 require(`dotenv`).config();
 const express = require(`express`);
+const path = require('path');
+const favicon = require('serve-favicon');
 const session = require(`express-session`);
 const passport = require(`./config/passport/passport`);
 const exphbs = require(`express-handlebars`);
@@ -10,6 +12,7 @@ const SqlStore = require('connect-session-sequelize')(session.Store);
 
 const db = require(`./models`);
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -18,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(`public`));
 app.use(cookieParser());
+app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
 
 app.use(
   session({
@@ -35,7 +39,10 @@ app.use(passport.session());
 app.engine(
   `handlebars`,
   exphbs({
-    defaultLayout: `main`
+    defaultLayout: `main`,
+    helpers: {
+      isEqual: (a, b) => { return a === b; }
+    }
   })
 );
 app.set(`view engine`, `handlebars`);
