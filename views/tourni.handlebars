@@ -1,0 +1,72 @@
+
+
+<h1>Tournament Home Page</h1>
+
+<h2>North Avenue Beach Coed 5s</h2>
+<h1>Location</h1>
+
+
+
+<h2>north ave beach</h2>
+{{map}}
+
+ 
+<h3>upcoming match weather</h3>
+
+
+        
+
+<section id="Weather" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-6 text-center">
+
+                <i class="Temperature" style="color: #000000"></i>
+                <h3>Temperature</h3>
+                <p>temp</p>
+                
+            </div>
+            
+            <div class="col-md-6 mb-6 text-center">
+                <i class="Percipitation" style="color: #000000"></i>
+                <h3>Percipitation</h3>
+                <p>precipProbability</p>
+
+            </div>
+        </div>
+      
+
+
+<h3>Season Record</h3>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Wins", "Losses"],
+        datasets: [{
+            label: '#',
+            data: [1, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>

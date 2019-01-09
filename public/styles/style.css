@@ -55,3 +55,13 @@ body {
 .card {
     margin-top: 70px;
 }
+
+.map {
+    position: relative;
+    min-height: 400px;
+    background: url("https://maps.googleapis.com/maps/api/staticmap?center=North+Avenue+Beach,Chicago,IL&zoom=13&size=400x200&maptype=roadmap%20&markers=color:blue%7Clabel:S%7C41.9148113,-87.6251085&key=AIzaSyD_kTgSDnPeXBLWL14uattTiBX4ksgaGS8");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+}
