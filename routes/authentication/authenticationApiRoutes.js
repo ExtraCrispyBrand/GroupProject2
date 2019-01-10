@@ -1,8 +1,12 @@
 // Requiring our models and passport as we've configured it
 const db = require(`../../models`);
 const passport = require(`../../config/passport/passport`);
+const isAuthenticated = require(`../../config/passport/isAuthenticated`);
+const isPlayer = require('../../config/passport/isPlayer');
+const isSponsor = require('../../config/passport/isSponsor');
 
 module.exports = app => {
+
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -42,7 +46,7 @@ module.exports = app => {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get(`/api/user_data`, (req, res) => {
+  app.get(`/api/user_data`, isAuthenticated, (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -50,11 +54,45 @@ module.exports = app => {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        uuid: req.user.uuid,
+        accountType: req.user.accountType,
         firstName: req.user.firstName,
         lastName: req.user.lastName,
+        companyName: req.user.lastName,
         email: req.user.email,
-        accountType: req.user.accountType
+        createdAt: req.user.createdAt,
+        updatedAt: req.user.updatedAt
       });
+
     }
+  });
+
+  app.post('/api/createplayerprofile', isAuthenticated, isPlayer, (req, res) => {
+    console.log(req);
+    const body = req.body;
+    const uuid = req.user.uuid;
+
+    console.log(`UserUuid: ${uuid},
+      about: ${body.about},
+      birthdate: ${body.birthdate},
+      city: ${body.city},
+      state: ${body.state},
+      favoriteSport: ${body.favoriteSport},
+      favoriteTeam: ${body.favoriteTeam},
+      facebookURL: ${body.facebookURL}`);
+
+    db.UserProfile.create({
+      UserUuid: uuid,
+      about: body.about,
+      birthdate: body.birthdate,
+      city: body.city,
+      state: body.state,
+      favoriteSport: body.favoriteSport,
+      favoriteTeam: body.favoriteTeam,
+      facebookURL: body.facebookURL
+    })
+      .then(() =>
+        res.redirect('/playerhome')
+      );
   });
 };

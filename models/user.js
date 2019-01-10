@@ -2,7 +2,6 @@
 
 //require bcrypt for password hashing in the database, essentially it encrypts the user's password before storing it to the database
 const bcrypt = require(`bcrypt-nodejs`);
-
 /**
  * Users
  * uuid (uniquie identifier and primary key)
@@ -65,14 +64,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/
       }
-    },
-
-    lastlogin: {
-      type: DataTypes.DATE
-    },
-
-    isActive: {
-      type: DataTypes.BOOLEAN
     }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -105,7 +96,14 @@ module.exports = (sequelize, DataTypes) => {
       bcrypt.genSaltSync(10),
       null
     );
+
+    User.associate = models => {
+      User.hasOne(models.UserProfile, {
+        onDelete: 'cascade'
+      });
+    };
   });
 
   return User;
+
 };
