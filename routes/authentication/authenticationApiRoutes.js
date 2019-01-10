@@ -92,7 +92,7 @@ module.exports = app => {
       facebookURL: body.facebookURL
     })
       .then(() =>
-        res.redirect('/playerhome')
+        res.redirect('/playerhome', { User: req.User.dataValues, UserProfile: req.user.UserProfile })
       );
   });
 };
