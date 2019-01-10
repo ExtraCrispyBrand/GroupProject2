@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    TeamName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     Wins: {
       type: DataTypes.INTEGER,
       allowNull: false
