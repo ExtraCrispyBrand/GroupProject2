@@ -8,7 +8,13 @@
 
 
 <h2>north ave beach</h2>
-{{map}}
+<div id="map image" 
+position= "fixed"
+class="map"></div>
+    
+
+            
+
 
  
 <h3>upcoming match weather</h3>
@@ -23,14 +29,15 @@
 
                 <i class="Temperature" style="color: #000000"></i>
                 <h3>Temperature</h3>
-                <p>temp</p>
+                temp
                 
             </div>
             
             <div class="col-md-6 mb-6 text-center">
                 <i class="Percipitation" style="color: #000000"></i>
                 <h3>Percipitation</h3>
-                <p>precipProbability</p>
+                
+                precipProbability
 
             </div>
         </div>
@@ -69,4 +76,10 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+//link the JS file
+ <script src = "../public/js/apis.js" type="text/javascript"></script>
+
 </script>
