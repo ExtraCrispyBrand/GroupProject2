@@ -30,15 +30,17 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    mySports: {
+    favoriteSport: {
       type: DataTypes.STRING,
       allowNull: false,
-      get() {
-        return this.getDataValue('mySports').split(' ');
-      },
-      set(val) {
-        this.setDataValue('mySports'), val.join(' ');
+      validate: {
+        isAlpha: true
       }
+    },
+
+    favoriteTeam: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
 
     facebookURL: {
@@ -49,6 +51,14 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
+  UserProfile.associate = models => {
+    UserProfile.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return UserProfile;
 };
