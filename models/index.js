@@ -36,8 +36,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //model tables
-db.Tourni = require('../models/tourniValues')(sequelize, Sequelize);  
-db.ActiveTournament = require('../models/tourniValues')(sequelize, Sequelize);  
+db.Tourni = require('/models/tourniValues.js')(sequelize, Sequelize);  
+db.ActiveTournament = require('/models/ActiveTourniValues.js')(sequelize, Sequelize);  
 
 
 
