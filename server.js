@@ -6,7 +6,7 @@ const session = require(`express-session`);
 const passport = require(`./config/passport/passport`);
 const exphbs = require(`express-handlebars`);
 const cookieParser = require('cookie-parser');
-
+const express_handlebars_sections = require('express-handlebars-sections');
 const SqlStore = require('connect-session-sequelize')(session.Store);
 
 
@@ -42,12 +42,7 @@ app.engine(
     defaultLayout: `main`,
     helpers: {
       isEqual: (a, b) => { return a === b; },
-      section: function (name, options) {
-        //eslint-disable-next-line
-        if (!this._sections) this_sections = [];
-        this._sections[name] = options.fn(this);
-        return null;
-      }
+      section: express_handlebars_sections()
     }
   })
 );
