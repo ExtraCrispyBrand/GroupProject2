@@ -41,7 +41,13 @@ app.engine(
   exphbs({
     defaultLayout: `main`,
     helpers: {
-      isEqual: (a, b) => { return a === b; }
+      isEqual: (a, b) => { return a === b; },
+      section: function (name, options) {
+        //eslint-disable-next-line
+        if (!this._sections) this_sections = [];
+        this._sections[name] = options.fn(this);
+        return null;
+      }
     }
   })
 );
