@@ -11,6 +11,13 @@ router.about = (req, res) => {
 
 router.contact = (req, res) => {
   res.render("contact");
+
+=======
+};
+
+router.tourni = (req, res) => {
+  res.render("tourni");
+
 };
 
 module.exports = router;

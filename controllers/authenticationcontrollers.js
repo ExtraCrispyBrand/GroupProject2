@@ -11,6 +11,7 @@ authenticationRouter.signin = (req, res) => {
 };
 
 authenticationRouter.playerhome = (req, res) => {
+
   res.render("playerhome", {
     user: req.user,
     isSponsor: req.user.accountType === "sponsor",
@@ -27,6 +28,19 @@ authenticationRouter.sponsorhome = (req, res) => {
   });
   console.log(req.user);
 };
+
+=======
+  res.render('playerhome', { user: req.user, isSponsor: req.user.accountType === 'sponsor', isPlayer: req.user.accountType === 'player' });
+};
+
+authenticationRouter.sponsorhome = (req, res) => {
+  res.render('sponsorhome', { user: req.user, isSponsor: req.user.accountType === 'sponsor', isPlayer: req.user.accountType === 'player' });
+};
+
+authenticationRouter.createplayerprofile = (req, res) => {
+  res.render('createplayerprofile', { user: req.user, isSponsor: req.user.accountType === 'sponsor', isPlayer: req.user.accountType === 'player' });
+};
+
 
 authenticationRouter.logout = (req, res) => {
   req.logout();
