@@ -29,32 +29,8 @@ module.exports = (sequelize, DataTypes) => {
   return Tourni;
 };
 
-module.exports = (sequelize, DataTypes) => {
-  const ActiveTournament = sequelize.define(`ActiveTournament`, {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    tournamentId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    Wins: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
 
-    losses: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
 
-    totalpoints: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    }
-  });
 
-  return ActiveTournament;
-};
+
+

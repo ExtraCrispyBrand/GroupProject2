@@ -77,7 +77,7 @@ $(document).ready(() => {
       .then(data => {
 
         if (accountType === `player`) {
-          window.location.replace(`/playerhome`);
+          window.location.replace(`/createplayerprofile`);
         }
 
         if (accountType === `sponsor`) {

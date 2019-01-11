@@ -17,7 +17,7 @@ module.exports = app => {
 
   app.get(`/home`, isAuthenticated, isPlayer, authenticationRouter.playerhome);
 
-  app.get('/home', isAuthenticated, isSponsor, authenticationRouter.sponsorhome);
+  app.get('/createplayerprofile', isAuthenticated, isPlayer, authenticationRouter.createplayerprofile);
 
   app.get('/logout', authenticationRouter.logout);
 };

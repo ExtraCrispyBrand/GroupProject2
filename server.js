@@ -58,6 +58,7 @@ require(`./routes/authentication/authenticationApiRoutes`)(app);
 require(`./routes/authentication/authenticationHtmlRoutes`)(app);
 require(`./routes/htmlRoutes`)(app);
 
+
 const syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
