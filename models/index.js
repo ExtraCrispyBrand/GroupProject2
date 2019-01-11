@@ -35,15 +35,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-//model tables
-db.Tourni = require('/models/tourniValues.js')(sequelize, Sequelize);  
-db.ActiveTournament = require('/models/ActiveTourniValues.js')(sequelize, Sequelize);  
 
-
-
-//table relations
-db.ActiveTournament.belongsTo(db.Tourni);  
-db.Tourni.hasMany(db.ActiveTournament);  
 
 
 
