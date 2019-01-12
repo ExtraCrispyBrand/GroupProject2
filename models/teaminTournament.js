@@ -1,5 +1,8 @@
+
+//These are the values of the Team active in the tornament it is being joined to the tournament table with the commented scrip at the top of file AllTourni.js
+
 module.exports = (sequelize, DataTypes) => {
-  const ActiveTournament = sequelize.define(`ActiveTournament`, {
+  const teamInTournament = sequelize.define(`teamInTournament`, {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -29,5 +32,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  return ActiveTournament;
+  return teamInTournament;
 };

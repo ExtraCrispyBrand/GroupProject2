@@ -38,6 +38,15 @@ db.Sequelize = Sequelize;
 
 
 
+//trying to join tables on the index instead of the table file in different ways - didnt work
+
+// teaminTournament.belongsTo(allTourni);
+
+// allTourni.hasmany(models.teamInTournament, {
+//   foreignKey: 'tournamentId',
+
+// });
+
 
 
 console.log(`DB`, Object.keys(db));
