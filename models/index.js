@@ -22,7 +22,9 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(file => {
-    const model = sequelize.import(path.join(__dirname, file));
+
+    //line was originally const model = sequelize.import(path.join(__dirname, file)); before I changed it. ==== I changed it back my change didnt influence it. 
+    const model = sequelize.import(path.join(__dirname, file))
     db[model.name] = model;
   });
 

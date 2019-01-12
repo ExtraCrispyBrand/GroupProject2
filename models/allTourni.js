@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const allTourni = sequelize.define(`allTourni`, {
+  const alltourni = sequelize.define(`alltourni`, {
 
 
 
@@ -46,11 +46,21 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return allTourni;
+
+    //trying the belongs to here like our user table
+  alltourni.associate = models => {
+    alltourni.belongsTo(models.teamintournament, {
+      foreignKey: {
+        
+
+        allowNull: false
+      }
+    });
+  };
+
+
+  return alltourni;
 };
-
-
-
 
 
 
