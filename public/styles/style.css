@@ -56,7 +56,7 @@ body {
     margin-top: 70px;
 }
 
-
+/*this is the api image to be referenced in spiting the image to work in handlebard */
 .map {
     min-height: 400px;
     background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=North+Avenue+Beach,Chicago,IL&zoom=13&size=400x200&maptype=roadmap%20&markers=color:blue%7Clabel:S%7C41.9148113,-87.6251085&key=);

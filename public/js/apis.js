@@ -7,10 +7,9 @@ let longitude = 87.6251;
 //Needs to be lat , long , Unix time (this includes both date and time in its value)
 //Dark Sky Api Format
 //Needs to be lat , long , Unix time (this includes both date and time in its value)
-// https://cors-anywhere.herokuapp.com/
 
-// //need to find how to put apikey into .env
 
+// BELOW IS MY ATTEMPT USING FETCH METHOD TO DO API CALL
 // // process.env.DARKSKYAPIKEY
 
 // let url = "https://api.darksky.net/forecast/";
@@ -46,15 +45,9 @@ let longitude = 87.6251;
 //   });
 
 
-// let weatherTime = 1540148070;
+// Weather Call doing AJAX method I know wasnt able to work
 
-//Dark Sky Api Format
-//Needs to be lat , long , Unix time (this includes both date and time in its value)
-//Dark Sky Api Format
-//Needs to be lat , long , Unix time (this includes both date and time in its value)
-// https://cors-anywhere.herokuapp.com/
 
-//need to find how to put apikey into .env
 let apiKey = process.env.DARKSKYAPIKEY;
 
 let url = "https://api.darksky.net/forecast/";
@@ -63,20 +56,20 @@ let longi = longitude;
 
 let darkSkyApiCall = url + apiKey + "/" + lati + "," + longi;
 
-//Run the Weather Api
+
 
 $.ajax({
   type: "GET",
   url: darkSkyApiCall
 }).then(function(response) {
   //log the queryURL
-  //log the result and specific paramters
 
+  console.log(darkSkyApiCall);
   //variables to pass onto the tournament dashboard
   let temp = response.currently.temperature + "°F";
 
   let precipProbability = response.currently.precipProbability * 100 + "%";
-
+  //log to see if the parameters are working
   console.log(temp);
   console.log(precipProbability);
 });
