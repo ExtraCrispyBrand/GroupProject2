@@ -1,5 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
-  const Tourni = sequelize.define(`Tourni`, {
+  const allTourni = sequelize.define(`allTourni`, {
+
+
+
+
+
+    
+
+    //tried associating with teaminTournament here but it crashes on local
+    // associate: (models) => {
+    //   console.log(models);
+    //   // tournament will have multiple teams
+
+    //   allTourni.hasmany(models.teamInTournament, {
+    //     foreignKey: 'tournamentId',
+
+    //   });
+    // },
+    
+    //values of the tournament table
+    
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -26,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return Tourni;
+  return allTourni;
 };
 
 
