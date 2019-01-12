@@ -12,7 +12,7 @@ $(document).ready(() => {
 
 
   editProfileForm.submit(event => {
-
+    event.preventDefault();
     const userProfileData = {
       about: aboutInput.val().trim(),
       birthdate: birthdateInput.val().trim(),
