@@ -20,4 +20,8 @@ module.exports = app => {
   app.get('/createplayerprofile', isAuthenticated, isPlayer, authenticationRouter.createplayerprofile);
 
   app.get('/logout', authenticationRouter.logout);
+
+  // app.get('/playerhome2', );
+
+  // app.get('/tournihome', );
 };

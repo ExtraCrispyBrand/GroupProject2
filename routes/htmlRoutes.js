@@ -11,6 +11,10 @@ module.exports = app => {
   app.get('/contact', router.contact);
 
   app.get('/tourni', router.tourni);
+
+  app.get('/playerhome2', router.playerhome2);
+
+  app.get('/tournihome', router.tourni);
  
 
 
