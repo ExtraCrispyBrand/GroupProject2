@@ -17,4 +17,10 @@ router.tourni = (req, res) => {
   res.render("tourni");
 };
 
+router.playerhome2 = (req, res) => {
+  res.render("playerhome2");
+};
+
+
+
 module.exports = router;
